@@ -1,0 +1,20 @@
+<ng-container *ngIf="categoryWithItems$ | async as categoryWithItems"; else loading>
+    <p>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <a mat-button routerLink="/categories">Back to categories</a>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+    </p>
+
+    <h3 class="m-2">Items under category: <b>{{categoryWithItems.name}}</b></h3>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-3">
+        <app-item-card class="col" *ngFor="let item of categoryWithItems.items" [item]="item"></app-item-card>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    Please wait
+</ng-template>

@@ -1,0 +1,24 @@
+<form class="d-flex flex-column" #categoryForm="ngForm" (ngSubmit)="confirm()">
+    <h4 class="text-white m-3">Category</h4>
+    <div class="form-row p-3">
+        <mat-form-field class="form-group col-12 p-2">
+            <input matInput placeholder="Name" type="text" name="name" [(ngModel)]="categoryModel.name"
+                maxlength="50" #nameField="ngModel" required />
+            <mat-error *ngIf="nameField.invalid">Please enter a category name.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group col-12 p-2">
+            <input matInput placeholder="Description" type="text" name="description"
+                [(ngModel)]="categoryModel.description" maxlength="255" #descField="ngModel" required />
+            <mat-error *ngIf="descField.invalid">Please enter description.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group col-12 p-2">
+            <input matInput placeholder="Image url" type="text" name="url" [(ngModel)]="categoryModel.imageUrl"
+                maxlength="255" #urlField="ngModel" />
+        </mat-form-field>
+
+        <button mat-button type="button" (click)="close()">Close</button>
+        <button mat-button type="submit" [disabled]="!categoryForm.valid">Apply</button>
+    </div>
+</form>

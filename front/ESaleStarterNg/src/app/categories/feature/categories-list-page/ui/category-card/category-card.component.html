@@ -1,0 +1,15 @@
+<div *ngIf="category" class="card h-100">
+    <img [src]="category.imageUrl" class="card-img-top">
+    <div class="card-body" role="button" (click)="onRedirect()">
+        <h5 class="card-title">{{category.name}}</h5>
+        <p class="card-text">{{category.description}}</p>
+    </div>
+    <div class="card-footer d-flex">
+        <button mat-mini-fab (click)="onUpdate()" color="primary" class="m-2">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab (click)="onDelete()" color="primary" class="m-2">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>

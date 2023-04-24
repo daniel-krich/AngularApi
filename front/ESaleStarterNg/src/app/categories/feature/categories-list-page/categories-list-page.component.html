@@ -1,0 +1,14 @@
+<ng-container *ngIf="categories$ | async as categories; else loading">
+    <app-categories-tool-bar (addCategory)="onAddCategory()"></app-categories-tool-bar>
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-3">
+        <app-category-card class="col" *ngFor="let category of categories"
+                                [category]="category"
+                                (delete)="onDelete($event)"
+                                (update)="onUpdate($event)"
+                                (redirect)="onRedirect($event)"></app-category-card>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    Please wait
+</ng-template>
